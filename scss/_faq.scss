@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+
+.faq {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: f.espaco(2);
+        padding: f.espaco(3) 0;
+        font-family: v.$fonte-titulo;
+        font-weight: 500;
+        font-size: 1.1rem;
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker { display: none; }
+
+        // ícone "+" que vira "×" quando aberto
+        &::after {
+            content: '+';
+            font-size: 1.6rem;
+            color: map.get(v.$cores, ciano);
+            transition: transform 0.25s;
+        }
+    }
+    &[open] summary::after { transform: rotate(45deg); }
+    p {
+        color: v.$cor-texto-suave;
+        padding-bottom: f.espaco(3);
+        margin: 0;
+    }
+}

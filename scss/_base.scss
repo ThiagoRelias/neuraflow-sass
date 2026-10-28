@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+@use 'mixins' as m;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: f.espaco(10);
+}
+
+body {
+    margin: 0;
+    background: v.$cor-fundo;
+    color: v.$cor-texto;
+    font-family: v.$fonte-texto;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: v.$fonte-titulo;
+    line-height: 1.15;
+    margin: 0 0 f.espaco(2);
+}
+
+p { margin: 0 0 f.espaco(2); }
+a { color: inherit; }
+
+:focus-visible {
+    outline: 2px solid map.get(v.$cores, ciano);
+    outline-offset: 3px;
+}
+
+.container {
+    width: 100%;
+    max-width: v.$largura-max;
+    margin-inline: auto;
+    padding-inline: f.espaco(3);
+
+    &--estreito { max-width: v.$largura-estreita; }
+}
+
+.gradiente { @include m.texto-gradiente; }
+
+.secao {
+    padding-block: f.espaco(12);
+
+    @include m.max(mobile) { padding-block: f.espaco(8); }
+
+    &__titulo {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    &__sub {
+        color: v.$cor-texto-suave;
+        margin-bottom: f.espaco(5);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none ;
+        transition: none ;
+        scroll-behavior: auto ;
+    }
+}

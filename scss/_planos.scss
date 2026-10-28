@@ -1,0 +1,78 @@
+@use 'sass:map';
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+@use 'mixins' as m;
+@use 'cards';
+
+.planos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: f.espaco(3);
+    align-items: stretch;
+
+    @include m.max(tablet) { grid-template-columns: 1fr; }
+}
+
+.plano {
+    @extend %card-base;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    h3 { font-size: 1.3rem; }
+
+    &__preco {
+        font-family: v.$fonte-titulo;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: f.espaco(3);
+
+        small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: v.$cor-texto-suave;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0 0 f.espaco(4);
+        padding: 0;
+        flex: 1;
+    }
+
+    li {
+        padding: f.espaco(1) 0 f.espaco(1) f.espaco(3);
+        position: relative;
+        color: v.$cor-texto-suave;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.05em;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            @include m.gradiente;
+        }
+    }
+    &--destaque {
+        border: 1px solid transparent;
+        background:
+            linear-gradient(v.$cor-card, v.$cor-card) padding-box,
+            linear-gradient(135deg, map.get(v.$cores, roxo), map.get(v.$cores, ciano)) border-box;
+        box-shadow: 0 0 50px rgba(map.get(v.$cores, roxo), 0.25);
+    }
+    &__selo {
+        position: absolute;
+        top: -14px;
+        right: f.espaco(3);
+        padding: 4px f.espaco(1.5);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: v.$cor-branco;
+        @include m.gradiente(map.get(v.$cores, rosa), map.get(v.$cores, roxo));
+    }
+}

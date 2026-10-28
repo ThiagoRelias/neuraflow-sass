@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use 'variaveis' as v;
+
+@mixin gradiente($de: map.get(v.$cores, roxo), $ate: map.get(v.$cores, ciano)) {
+    background: linear-gradient(135deg, $de, $ate);
+}
+
+@mixin texto-gradiente {
+    @include gradiente;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin max($bp) {
+    @media (max-width: map.get(v.$breakpoints, $bp)) {
+        @content;
+    }
+}

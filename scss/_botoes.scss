@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+@use 'mixins' as m;
+
+.btn {
+    display: inline-block;
+    padding: f.espaco(1.5) f.espaco(3);
+    border-radius: 999px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+
+    &:hover { transform: translateY(-2px); }
+
+    &--primario {
+        @include m.gradiente;
+        color: v.$cor-branco;
+
+        &:hover {
+            box-shadow: 0 8px 24px rgba(map.get(v.$cores, roxo), 0.45);
+        }
+    }
+
+    &--contorno {
+        @include m.glass;
+        color: v.$cor-texto;
+
+        &:hover { border-color: map.get(v.$cores, ciano); }
+    }
+
+    &--pequeno { padding: f.espaco(1) f.espaco(2.5); }
+}
