@@ -1,0 +1,9 @@
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+
+%card-base {
+    padding: f.espaco(5);
+    border: 1px solid #374151;
+    border-radius: v.$raio;
+    background: v.$cor-card;
+}

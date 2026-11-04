@@ -1,0 +1,60 @@
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+
+.header {
+    border-bottom: 1px solid #293548;
+    background: v.$cor-fundo;
+
+    &__interno {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: f.espaco(4);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: f.espaco(2);
+    font-family: v.$fonte-titulo;
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    &__marca {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        background: #8b7cf6;
+    }
+}
+
+.menu {
+    display: flex;
+    gap: f.espaco(5);
+
+    a {
+        color: v.$cor-texto-suave;
+        font-size: 0.9rem;
+
+        &:hover {
+            color: v.$cor-texto;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .header__interno {
+        flex-wrap: wrap;
+        padding-top: f.espaco(3);
+        padding-bottom: f.espaco(3);
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: f.espaco(4);
+    }
+}

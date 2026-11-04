@@ -1,15 +1,14 @@
-@use 'sass:map';
 @use 'variaveis' as v;
 @use 'funcoes' as f;
 @use 'mixins' as m;
 
-*, *::before, *::after {
+* {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: f.espaco(10);
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -20,50 +19,57 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: v.$fonte-titulo;
-    line-height: 1.15;
-    margin: 0 0 f.espaco(2);
+    line-height: 1.2;
+    margin: 0 0 f.espaco(3);
 }
 
-p { margin: 0 0 f.espaco(2); }
-a { color: inherit; }
+p {
+    margin: 0 0 f.espaco(3);
+}
 
-:focus-visible {
-    outline: 2px solid map.get(v.$cores, ciano);
-    outline-offset: 3px;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .container {
     width: 100%;
     max-width: v.$largura-max;
-    margin-inline: auto;
-    padding-inline: f.espaco(3);
+    margin: 0 auto;
+    padding: 0 f.espaco(5);
 
-    &--estreito { max-width: v.$largura-estreita; }
+    &--estreito {
+        max-width: v.$largura-estreita;
+    }
 }
 
-.gradiente { @include m.texto-gradiente; }
+.gradiente {
+    @include m.texto-gradiente;
+}
 
 .secao {
-    padding-block: f.espaco(12);
-
-    @include m.max(mobile) { padding-block: f.espaco(8); }
+    padding: f.espaco(12) 0;
 
     &__titulo {
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
     }
 
     &__sub {
         color: v.$cor-texto-suave;
-        margin-bottom: f.espaco(5);
+        margin-bottom: f.espaco(6);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none ;
-        transition: none ;
-        scroll-behavior: auto ;
+@media (max-width: 480px) {
+    .secao {
+        padding: f.espaco(8) 0;
+    }
+
+    .container {
+        padding: 0 f.espaco(4);
     }
 }

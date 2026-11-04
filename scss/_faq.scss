@@ -3,33 +3,38 @@
 @use 'funcoes' as f;
 
 .faq {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #374151;
+
     summary {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        gap: f.espaco(2);
-        padding: f.espaco(3) 0;
+        justify-content: space-between;
+        gap: f.espaco(3);
+        padding: f.espaco(4) 0;
         font-family: v.$fonte-titulo;
+        font-size: 1rem;
         font-weight: 500;
-        font-size: 1.1rem;
         cursor: pointer;
         list-style: none;
 
-        &::-webkit-details-marker { display: none; }
+        &::-webkit-details-marker {
+            display: none;
+        }
 
-        // ícone "+" que vira "×" quando aberto
         &::after {
             content: '+';
-            font-size: 1.6rem;
             color: map.get(v.$cores, ciano);
-            transition: transform 0.25s;
+            font-size: 1.4rem;
         }
     }
-    &[open] summary::after { transform: rotate(45deg); }
+
+    &[open] summary::after {
+        content: '−';
+    }
+
     p {
-        color: v.$cor-texto-suave;
-        padding-bottom: f.espaco(3);
+        padding-bottom: f.espaco(4);
         margin: 0;
+        color: v.$cor-texto-suave;
     }
 }

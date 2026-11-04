@@ -1,31 +1,24 @@
-@use 'sass:map';
 @use 'variaveis' as v;
 
-@mixin gradiente($de: map.get(v.$cores, roxo), $ate: map.get(v.$cores, ciano)) {
-    background: linear-gradient(135deg, $de, $ate);
+@mixin max($tamanho) {
+    @if $tamanho == tablet {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $tamanho == mobile {
+        @media (max-width: 480px) {
+            @content;
+        }
+    }
 }
 
 @mixin texto-gradiente {
-    @include gradiente;
-    -webkit-background-clip: text;
+    background: linear-gradient(90deg, #8b7cf6, #55c7d9);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
 }
 
-@mixin glass {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
-
-@mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@mixin max($bp) {
-    @media (max-width: map.get(v.$breakpoints, $bp)) {
-        @content;
-    }
+@mixin gradiente($cor1: #8b7cf6, $cor2: #55c7d9) {
+    background: linear-gradient(90deg, $cor1, $cor2);
 }

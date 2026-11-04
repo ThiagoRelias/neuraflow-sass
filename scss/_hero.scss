@@ -1,0 +1,80 @@
+@use 'sass:map';
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+@use 'mixins' as m;
+
+.hero {
+    padding: f.espaco(16) 0 f.espaco(12);
+
+    &__interno {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: f.espaco(10);
+
+        @include m.max(tablet) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    h1 {
+        max-width: 600px;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+    &__sub {
+        max-width: 480px;
+        color: v.$cor-texto-suave;
+        font-size: 1.05rem;
+    }
+
+    &__acoes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: f.espaco(3);
+        margin-top: f.espaco(5);
+    }
+}
+
+.demo {
+    padding: f.espaco(5);
+    border: 1px solid #374151;
+    border-radius: v.$raio;
+    background: v.$cor-card;
+
+    &__barra {
+        display: flex;
+        gap: 6px;
+        margin-bottom: f.espaco(5);
+
+        span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #6b7280;
+        }
+    }
+}
+
+.msg {
+    max-width: 90%;
+    padding: f.espaco(3);
+    border-radius: 8px;
+    font-size: 0.9rem;
+
+    &--user {
+        margin-left: auto;
+        background: #374151;
+    }
+
+    &--ia {
+        background: rgba(map.get(v.$cores, roxo), 0.15);
+        border: 1px solid rgba(map.get(v.$cores, roxo), 0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: f.espaco(10) 0;
+    }
+}

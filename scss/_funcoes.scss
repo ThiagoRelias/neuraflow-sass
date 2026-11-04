@@ -1,5 +1,6 @@
+@use 'sass:math';
 @use 'variaveis' as v;
 
-@function espaco ($n) {
-    @return $n * v.$unidade
+@function espaco($valor) {
+    @return math.div($valor * 4, 1) * 1px;
 }

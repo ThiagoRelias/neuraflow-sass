@@ -1,0 +1,44 @@
+@use 'variaveis' as v;
+@use 'funcoes' as f;
+
+.footer {
+    margin-top: f.espaco(8);
+    border-top: 1px solid #293548;
+
+    &__interno {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: f.espaco(4);
+        padding-top: f.espaco(5);
+        padding-bottom: f.espaco(5);
+
+        p {
+            margin: 0;
+            color: v.$cor-texto-suave;
+            font-size: 0.85rem;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: f.espaco(4);
+
+            a {
+                color: v.$cor-texto-suave;
+                font-size: 0.85rem;
+
+                &:hover {
+                    color: v.$cor-texto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .footer__interno {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

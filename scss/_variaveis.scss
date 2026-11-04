@@ -1,24 +1,20 @@
-$cor-fundo: #0a0b1e;
-$cor-card: #14162e;
-$cor-texto: #e5e7eb;
-$cor-texto-suave: #9ca3af;
-$cor-branco: #fff;
+@use 'sass:map';
 
 $cores: (
-    roxo: #7c3aed,
-    ciano: #22d3ee,
-    rosa: #f472b6
+    roxo: #8b7cf6,
+    ciano: #55c7d9,
+    rosa: #e879b9
 );
 
-$fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
-$fonte-texto: 'Inter', system-ui, sans-serif;
+$cor-fundo: #111827;
+$cor-card: #1f2937;
+$cor-texto: #f3f4f6;
+$cor-texto-suave: #aeb8c8;
+$cor-branco: #ffffff;
 
-$unidade: 8px;
-$raio: 16px;
+$fonte-texto: 'Inter', sans-serif;
+$fonte-titulo: 'Space Grotesk', sans-serif;
+
+$raio: 10px;
 $largura-max: 1100px;
-$largura-estreita: 760px;
-
-$breakpoints: (
-    mobile: 600px,
-    tablet: 900px
-);
+$largura-estreita: 750px;
