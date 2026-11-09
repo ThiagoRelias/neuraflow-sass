@@ -1,58 +1,30 @@
-@use 'sass:map';
 @use 'variaveis' as v;
 @use 'funcoes' as f;
-@use 'cards';
+@use 'mixins' as m;
 
 .recursos {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: f.espaco(4);
+    margin-top: f.espaco(8);
+    border-bottom: 1px solid v.$cor-linha;
 }
 
 .recurso {
-    @extend %card-base;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: f.espaco(6);
+    padding: f.espaco(6) 0;
+    border-top: 1px solid v.$cor-linha;
 
     h3 {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
 
     p {
-        margin: 0;
+        max-width: 52ch;
         color: v.$cor-texto-suave;
-        font-size: 0.9rem;
     }
 
-    &__icone {
-        display: grid;
-        place-items: center;
-        width: 44px;
-        height: 44px;
-        margin-bottom: f.espaco(4);
-        border-radius: 8px;
-        background: #293548;
-
-        svg {
-            width: 22px;
-            height: 22px;
-        }
-    }
-}
-
-@each $nome, $cor in v.$cores {
-    .recurso.cor-#{$nome} .recurso__icone {
-        color: $cor;
-        background: rgba($cor, 0.12);
-    }
-}
-
-@media (max-width: 900px) {
-    .recursos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    .recursos {
+    @include m.max(tablet) {
         grid-template-columns: 1fr;
+        gap: f.espaco(2);
     }
 }

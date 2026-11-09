@@ -1,20 +1,21 @@
 @use 'sass:map';
-
 $cores: (
-    roxo: #8b7cf6,
-    ciano: #55c7d9,
-    rosa: #e879b9
+    roxo: #0e7a53,
+    ciano: #0e7a53,
+    rosa: #0e7a53
 );
-
-$cor-fundo: #111827;
-$cor-card: #1f2937;
-$cor-texto: #f3f4f6;
-$cor-texto-suave: #aeb8c8;
+$cor-fundo: #f7f8f4;
+$cor-card: #ffffff;
+$cor-texto: #13201a;
+$cor-texto-suave: #4d5b53;
 $cor-branco: #ffffff;
+$cor-linha: #c9d3cb;
+$cor-marca-texto: #f6e27a;
 
-$fonte-texto: 'Inter', sans-serif;
-$fonte-titulo: 'Space Grotesk', sans-serif;
+$fonte-texto: 'Schibsted Grotesk', sans-serif;
+$fonte-titulo: 'Schibsted Grotesk', sans-serif;
+$fonte-dados: 'IBM Plex Mono', monospace;
 
-$raio: 10px;
+$raio: 2px;
 $largura-max: 1100px;
 $largura-estreita: 750px;

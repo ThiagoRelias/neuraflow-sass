@@ -1,4 +1,3 @@
-@use 'sass:map';
 @use 'variaveis' as v;
 @use 'funcoes' as f;
 @use 'mixins' as m;
@@ -8,8 +7,8 @@
 
     &__interno {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
+        grid-template-columns: 5fr 6fr;
+        align-items: start;
         gap: f.espaco(10);
 
         @include m.max(tablet) {
@@ -18,14 +17,17 @@
     }
 
     h1 {
-        max-width: 600px;
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        max-width: 14ch;
+        font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
     }
 
     &__sub {
-        max-width: 480px;
+        max-width: 46ch;
+        margin-top: f.espaco(4);
         color: v.$cor-texto-suave;
-        font-size: 1.05rem;
+        font-size: 1.1rem;
     }
 
     &__acoes {
@@ -36,40 +38,62 @@
     }
 }
 
-.demo {
-    padding: f.espaco(5);
-    border: 1px solid #374151;
+.resultado {
+    border: 1px solid v.$cor-linha;
     border-radius: v.$raio;
     background: v.$cor-card;
+    font-size: 0.95rem;
 
-    &__barra {
-        display: flex;
-        gap: 6px;
-        margin-bottom: f.espaco(5);
-
-        span {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #6b7280;
-        }
-    }
-}
-
-.msg {
-    max-width: 90%;
-    padding: f.espaco(3);
-    border-radius: 8px;
-    font-size: 0.9rem;
-
-    &--user {
-        margin-left: auto;
-        background: #374151;
+    &__pergunta,
+    &__nota {
+        margin: 0;
+        padding: f.espaco(3) f.espaco(4);
     }
 
-    &--ia {
-        background: rgba(map.get(v.$cores, roxo), 0.15);
-        border: 1px solid rgba(map.get(v.$cores, roxo), 0.3);
+    &__pergunta {
+        border-bottom: 1px solid v.$cor-linha;
+        color: v.$cor-texto-suave;
+    }
+
+    &__nota {
+        border-top: 1px solid v.$cor-linha;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: f.espaco(2) f.espaco(4);
+        text-align: left;
+    }
+
+    th {
+        color: v.$cor-texto-suave;
+        font-weight: 500;
+        border-bottom: 1px solid v.$cor-linha;
+    }
+
+    th:not(:first-child),
+    td:not(:first-child) {
+        text-align: right;
+        font-family: v.$fonte-dados;
+        font-variant-numeric: tabular-nums;
+    }
+
+    tbody tr+tr td {
+        border-top: 1px solid v.$cor-linha;
+    }
+
+    .queda td {
+        background: v.$cor-marca-texto;
+    }
+
+    tfoot td {
+        border-top: 1px solid v.$cor-texto;
+        font-weight: 700;
     }
 }
 

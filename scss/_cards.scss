@@ -3,7 +3,8 @@
 
 %card-base {
     padding: f.espaco(5);
-    border: 1px solid #374151;
+    border: 1px solid v.$cor-linha;
     border-radius: v.$raio;
     background: v.$cor-card;
+    box-shadow: none;
 }
